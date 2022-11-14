@@ -1,6 +1,6 @@
 
 ###########################################################
-# Rename the file extension to ".yaml" (remove "_") to enable
+# My custom workflow file. Based on docker._yaml example
 ###########################################################
 
 name: Docker Series Builds
@@ -11,9 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2  # Use existing Action to get source code.
     - name: docker build csharp
-      run: |
+      run: |  # Use the pipe for multiline string to run multiple builds 
         docker build ./c# -t aimvector/csharp:1.0.0
     - name: docker build nodejs
       run: |
