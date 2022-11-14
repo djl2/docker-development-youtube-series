@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: docker build csharp
-      run:  |  # Use pipe to run as multiline string
+      run:  |
         docker build ./c# -t aimvector/csharp:1.0.0
     - name: docker build nodejs
       run:  |
