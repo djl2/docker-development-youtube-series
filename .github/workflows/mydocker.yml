@@ -20,12 +20,17 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: docker build csharp
       run: |  # Use the pipe for multiline string to run multiple builds 
-        docker build ./c# -t aimvector/csharp:1.0.0
+        docker build ./c# -t djlowrance2/csharp:1.0.0
     - name: docker build nodejs
       run: |
-        docker build ./nodejs -t aimvector/nodejs:1.0.0
+        docker build ./nodejs -t djlowrance2/nodejs:1.0.0
     - name: docker build python
       run: |
-        docker build ./python -t aimvector/python:1.0.0
-
+        docker build ./python -t djlowrance2/python:1.0.0
+    - name: docker push
+      run: |
+        docker push djlowrance2/csharp:1.0.0
+        docker push djlowrance2/nodejs:1.0.0
+        docker push djlowrance2/python:1.0.0
+        
         
