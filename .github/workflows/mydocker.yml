@@ -9,13 +9,13 @@ on: [push]  # Set for CI. Builds on source code updates
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Runs the build on Github Actions Ubuntu worker node in cloud.
     steps:
     - uses: actions/checkout@v2  # Use existing Action to get source code.
     - name: docker login
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run:  |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: docker build csharp
@@ -32,5 +32,5 @@ jobs:
         docker push djlowrance2/csharp:1.0.0
         docker push djlowrance2/nodejs:1.0.0
         docker push djlowrance2/python:1.0.0
-        
+
         
