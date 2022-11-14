@@ -13,16 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: docker build csharp
-      run:  |
+      run: |
         docker build ./c# -t aimvector/csharp:1.0.0
     - name: docker build nodejs
-      run:  |
+      run: |
         docker build ./nodejs aimvector/nodejs:1.0.0
     - name: docker build python
-      run:  |
+      run: |
         docker build ./python aimvector/python:1.0.0
     - name: docker build golang
-      run:  |
+      run: |
         docker build ./golang aimvector/golang:1.0.0
         
       
