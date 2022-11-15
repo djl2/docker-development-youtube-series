@@ -5,7 +5,8 @@
 
 name: Docker Series Builds
 
-on: [push]  # Set for CI. Builds on source code updates
+# on: [push]  # Set for CI. Builds on source code updates DISABLED
+on: workflow_dispatch  # Set for manual builds
 
 jobs:
   build:

@@ -22,8 +22,8 @@ jobs:
     - name: docker build nodejs
       run: |
         docker build ./nodejs -t ghcr.io/djl2/nodejs
-    - name: docker push
+    - name: docker push # Publish to my GH Container Registry. View in Github account>Packages
       run: |
         docker push ghcr.io/djl2/nodejs
-      # To see published Docker images, go to your Github account>packages
+
 
