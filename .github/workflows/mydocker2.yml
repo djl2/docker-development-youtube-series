@@ -19,17 +19,9 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - name: docker build csharp
-      run: |  # Use the pipe for multiline string to run multiple commands 
-        docker build ./c# -t ghcr.io/djl2/csharp:1.0.0
     - name: docker build nodejs
       run: |
         docker build ./nodejs -t ghcr.io/djl2/nodejs:1.0.0
-    - name: docker build python
-      run: |
-        docker build ./python -t ghcr.io/djl2/python:1.0.0
     - name: docker push
       run: |
-        docker push ghcr.io/djl2/csharp:1.0.0
         docker push ghcr.io/djl2/nodejs:1.0.0
-        docker push ghcr.io/djl2/python:1.0.0
