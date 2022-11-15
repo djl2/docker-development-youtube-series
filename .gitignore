@@ -16,4 +16,4 @@ kubernetes/rancher/volume/*
 kubernetes/portainer/business/volume*
 
 # yml
-scratch.yml
+**/scratch.yml
