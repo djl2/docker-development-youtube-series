@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest  # Runs the build on Github Actions Ubuntu worker node in cloud.
     steps:
-    - uses: actions/checkout@v2  # Use existing Action to get source code  (instead of run:)
+    - uses: actions/checkout@v3  # Use existing Action to get source code  (instead of run:)
     - name: docker login
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
