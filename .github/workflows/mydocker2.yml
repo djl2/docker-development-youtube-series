@@ -19,9 +19,6 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: docker build csharp
       run: |  # Use the pipe for multiline string to run multiple commands 
         docker build ./c# -t djlowrance2/csharp:1.0.0
