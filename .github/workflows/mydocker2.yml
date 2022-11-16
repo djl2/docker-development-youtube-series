@@ -3,7 +3,7 @@
 # My Github Actions workflow. Pushes to Github Container Registry
 ###########################################################
 
-name: Docker Build & Push to GHCR
+name: Docker NodeJS Build & Push to GHCR
 
 on: workflow_dispatch  # Set to allow manual trigger in browser webapp
 
@@ -11,17 +11,20 @@ jobs:
   build:
     runs-on: ubuntu-latest  # Runs the build on Github Actions Ubuntu worker node in cloud.
     steps:
-    - uses: actions/checkout@v2  # Use existing Action to get source code.
+    - name: Checkout latest code using existing GH Actions
+      uses: actions/checkout@v3  # See https://github.com/actions/checkout
 
     - name: Log in to the Github Container registry # Uses the GH Action written by the Docker team (a bit strange IMO)
       uses: docker/login-action@v2  # See https://github.com/docker/login-action
       with:
         registry: ghcr.io   # The default github Container Registry url
         username: ${{ github.actor }}  # See https://github.com/docker/login-action#github-container-registry
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.GITHUB_TOKEN }} # No need to pre-create. See https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+
     - name: docker build nodejs
       run: |
         docker build ./nodejs -t ghcr.io/djl2/nodejs
+
     - name: docker push # Publish to my GH Container Registry. View in Github 'Your Profile>Packages' page
       run: |
         docker push ghcr.io/djl2/nodejs
