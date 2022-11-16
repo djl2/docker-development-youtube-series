@@ -5,7 +5,7 @@
 
 name: Docker NodeJS Build & Push to GHCR
 
-on: workflow_dispatch  # Set to allow manual trigger in browser webapp
+on: [push, workflow_dispatch]  # Set builds for both push (for CI) and manual trigger in browser webapp
 
 jobs:
   build:
