@@ -7,7 +7,7 @@ name: Docker - Tag build with git commit hash
 
 on:
   schedule:
-    - cron: '39 4 * * *'
+  #  - cron: '39 4 * * *'
   push:
     branches: [ "master" ]
     # Publish semver tags as releases.
